@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<h2 id ="fail">Email is not valid!</h2>
+<body>
+    <form action='/input' method='POST'>
+        Email Address: <input type = "text" name="email" value="email">
+        <input type="submit" value="Submit"> 
+    </form>
+</body>

@@ -1,0 +1,27 @@
+<html>
+<head>
+  <title>Email Validation</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+
+</head>
+<body>
+<div id="success">
+  The email address you entered {{session['email']}} is a VALID email address! Thank you!
+</div>
+<table>
+    <h2> Email Addresses Entered:</h2>
+{% for emails in all_emails: %}
+   <tr>
+        <td>{{ emails['email'] }}</td>
+        <td>{{ emails['created'] }}</td>
+   </tr>
+{% endfor %}
+</table>  
+  <h2>Add a Friend</h2>
+  <form action='/friends' method='POST'>
+    <label for="name">Name:<input type="text" name="name" id="name"></label>
+    <label for="age">Age:<input type="text" name="age" id="age"></label>
+    <input type="submit" value="Add">
+  </form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+#success{
+    border: 1px solid black;
+    background-color: green;
+    height: 75px;
+    width: 550px;
+}
+h2{
+    text-decoration: underline;
+}
+#fail{
+    border: 1px solid black;
+    background-color: red;
+     height: 75px;
+    width: 550px;
+}
