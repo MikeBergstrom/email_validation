@@ -17,11 +17,16 @@
    </tr>
 {% endfor %}
 </table>  
-  <h2>Add a Friend</h2>
-  <form action='/friends' method='POST'>
-    <label for="name">Name:<input type="text" name="name" id="name"></label>
-    <label for="age">Age:<input type="text" name="age" id="age"></label>
-    <input type="submit" value="Add">
+  <h2>Add an Email</h2>
+  <form action='/input' method='POST'>
+        Email Address: <input type = "text" name="email" value="email">
+        <input type="submit" value="Submit"> 
   </form>
+  <h2>Delete an email</h2>
+  <form action='/delete' method='POST'>
+        Email Address: <input type = "text" name="email" value="email">
+        <input type="submit" value="Submit"> 
+  </form>
+
 </body>
 </html>

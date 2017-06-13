@@ -24,9 +24,20 @@ def create():
         session['email'] = request.form['email']
         return redirect('/success')
 
-@app.route('/success' )
+@app.route('/success')
 def success():
-    query = "SELECT email, DATE_FORMAT(created_at, '%c/%e/%Y %I:%i&p') as created FROM emails"
+    query = "SELECT email, DATE_FORMAT(created_at, '%c/%e/%Y %I:%i%p') as created FROM emails"
     emails = mysql.query_db(query)
     return render_template('success.html', all_emails=emails)
+
+@app.route('/delete', methods=['POST'])
+def delete():
+    session['email'] = request.form['email']
+    query = "DELETE FROM emails WHERE email = :email"
+    data = {'email': request.form['email']}
+    mysql.query_db(query, data)
+    query = "SELECT email, DATE_FORMAT(created_at, '%c/%e/%Y %I:%i%p') as created FROM emails"
+    emails = mysql.query_db(query)
+    return render_template('delete.html', all_emails=emails)
+
 app.run(debug=True)
